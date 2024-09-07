@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#009688"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light.PopupMenu"
+        app:titleTextColor="@color/white" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="400dp"
+            android:layout_height="662dp"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:layout_editor_absoluteX="6dp"
+            tools:layout_editor_absoluteY="69dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:paddingBottom="8dp"
+                android:text="FORMULARIO DE CONTACTO"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="16dp"
+                android:text="A continuación, por favor se pide completar más datos personales." />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="8dp"
+                android:text="NIVEL DE ESTUDIOS ALCANZADOS"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="368dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/border"
+                android:padding="8dp">
+
+                <RadioButton
+                    android:id="@+id/radio_primario_incompleto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Primario incompleto" />
+
+                <RadioButton
+                    android:id="@+id/radio_primario_completo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Primario completo" />
+
+                <RadioButton
+                    android:id="@+id/radio_secundario_incompleto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Secundario incompleto" />
+
+                <RadioButton
+                    android:id="@+id/radio_secundario_completo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Secundario completo" />
+
+                <RadioButton
+                    android:id="@+id/radio_otros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Otros" />
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"
+                android:text="INTERESES"
+                android:textStyle="bold" />
+
+            <GridLayout
+                android:layout_width="201dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:columnCount="2"
+                android:orientation="horizontal">
+
+                <CheckBox
+                    android:id="@+id/checkbox1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_row="0"
+                    android:layout_column="0"
+                    android:text="Deporte" />
+
+                <CheckBox
+                    android:id="@+id/checkbox2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Música" />
+
+                <CheckBox
+                    android:id="@+id/checkbox3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tecnología" />
+
+                <CheckBox
+                    android:id="@+id/checkbox4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Arte" />
+            </GridLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/receiveInformationSwitch" />
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/material_switch"
+                    android:layout_width="75dp"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_guardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:paddingTop="16dp"
+                android:text="GUARDAR" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,6 +2,7 @@
     <string name="app_name">EjercicioControles</string>
     <string name="menu_option_agregar_contactos">Agregar contactos</string>
     <string name="menu_option_listado_contactos">Listado de contactos</string>
+    <string name="receiveInformationSwitch">DESEA RECIBIR INFORMACIÓN?</string>
 
     <string-array name="tipo_contacto">
         <item>Casa</item>
