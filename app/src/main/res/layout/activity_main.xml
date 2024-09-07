@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
         android:gravity="center"
-        android:text="Este es un formulario destinado al registro de personas, sus datos personales e intereses."
+        android:text="@string/formulario_descripcion"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -124,7 +124,8 @@
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Email" />
+                android:text="@string/email" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -136,32 +137,37 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textEmailAddress"
-                    android:text="Email" />
+                    android:autofillHints="emailAddress"
+                    android:hint="@string/email" />
+
                 <Spinner
                     android:id="@+id/spinner_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:entries="@array/tipo_contacto" />
+
             </LinearLayout>
+
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Direccion" />
+                android:text="@string/direccion" />
 
             <EditText
                 android:id="@+id/txt_direccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:text="Direccion" />
+                android:inputType="textPostalAddress"
+                android:autofillHints="postalAddress"
+                android:hint="@string/direccion" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Fecha de Nacimiento" />
+                android:text="@string/fecha_de_nacimiento" />
 
             <EditText
                 android:id="@+id/txt_date"
@@ -169,15 +175,18 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="date"
-                android:text="Fecha Nacimiento" />
+                android:autofillHints="birthDate"
+                android:hint="@string/fecha_de_nacimiento" />
+
             <Button
                 android:id="@+id/button_continue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CONTINUAR"
+                android:text="@string/continuar"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
                 android:layout_gravity="center" />
+
         </LinearLayout>
     </ScrollView>
 

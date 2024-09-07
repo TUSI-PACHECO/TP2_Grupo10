@@ -6,6 +6,11 @@
     <string name="nombre">Nombre</string>
     <string name="apellido">Apellido</string>
     <string name="telefono">Telefono</string>
+    <string name="formulario_descripcion">Este es un formulario destinado al registro de personas, sus datos personales e intereses.</string>
+    <string name="email">Email</string>
+    <string name="direccion">Direccion</string>
+    <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
+    <string name="continuar">CONTINUAR</string>
 
     <string-array name="tipo_contacto">
         <item>Casa</item>
