@@ -160,6 +160,10 @@ public class MainActivity extends AppCompatActivity {
         String direccion = txtDireccion.getText().toString();
         String fechaNacimiento = txtDate.getText().toString();
 
+        if (!validateForm()) {
+            return;
+        }
+
 // Crear un intent para pasar los datos a la siguiente actividad
         Intent intent = new Intent(this, formularioMasDatos.class);
         intent.putExtra("nombre", nombre);
