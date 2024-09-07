@@ -1,9 +1,11 @@
 package com.example.tp2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -20,7 +22,7 @@ import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText txtEmail, txtDate;
+    private EditText txtNombre, txtApellido, txtTelefono, txtDireccion, txtEmail, txtDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        txtNombre = findViewById(R.id.txt_nombre);
+        txtApellido=findViewById(R.id.txt_apellido);
+        txtTelefono=findViewById(R.id.txt_telefono);
+        txtDireccion=findViewById(R.id.txt_direccion);
         txtEmail = findViewById(R.id.txt_email);
         txtDate = findViewById(R.id.txt_date);
 
@@ -103,4 +109,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+  /*  ///Metodo para boton Guardar
+    public void Guardar(View view)
+    {
+        String nombre = txtNombre.getText().toString();
+        String apellido = txtApellido.getText().toString();
+        String telefono = txtTelefono.getText().toString();
+        String email = txtEmail.getText().toString();
+        String direccion = txtDireccion.getText().toString();
+        String fechaNacimiento = txtDate.getText().toString();
+
+        SharedPreferences preferencias = getSharedPreferences("contactos", Context.MODE_PRIVATE);
+        SharedPreferences.Editor obj_editor = preferencias.edit();
+        obj_editor.putString((nombre, apellido, telefono, email, direccion, fechaNacimiento));
+        obj_editor.commit();
+
+        Toast.makeText(this, "El contacto ha sido guardado", Toast.LENGTH_SHORT).show();
+
+
+
+
+    }
+*/
 }
