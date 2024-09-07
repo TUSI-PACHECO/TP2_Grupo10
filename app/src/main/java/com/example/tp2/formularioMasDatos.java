@@ -16,6 +16,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.google.android.material.switchmaterial.SwitchMaterial;
+
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -81,13 +83,14 @@ public class formularioMasDatos extends AppCompatActivity {
         if (checkTecnologia.isChecked()) {
             intereses.add(checkTecnologia.getText().toString());
         }
-
         return intereses; // Retorna una lista con los intereses seleccionados
     }
     public String verificarSwitch ()
+
     {
 
-        Switch Switch1= findViewById(R.id.material_switch);
+        SwitchMaterial Switch1 = findViewById(R.id.material_switch);
+
         String eleccion;
         if (Switch1.isChecked()) {
             eleccion = "Desea recibir información";
@@ -96,7 +99,7 @@ public class formularioMasDatos extends AppCompatActivity {
             eleccion = "No desea recibir información";
             Toast.makeText(this, eleccion, Toast.LENGTH_SHORT).show();
         }
-        return  eleccion;
+        return eleccion;
     }
 
     public void guardar(View view)
@@ -122,9 +125,8 @@ public class formularioMasDatos extends AppCompatActivity {
                 "Fecha de Nacimiento: " + fechaNacimiento + "\n" +
                 "Nivel de Estudios: " + nivelEstudios + "\n" +
                 "Intereses: " + intereses.toString() + "\n" +
-                "Recibe Información: " + deseaRecibirInfo;
+                "Recibe Información: " + deseaRecibirInfo + "\n\n";
 
-// Guardar en un archivo interno
         try {
             FileOutputStream fos = openFileOutput("contactos.txt", MODE_APPEND);
             fos.write(datosContacto.getBytes());
@@ -133,5 +135,6 @@ public class formularioMasDatos extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        finish();
     }
 }
