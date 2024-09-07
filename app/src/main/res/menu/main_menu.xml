@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_agregar_contactos"
+        android:title="@string/menu_option_agregar_contactos"
+        app:showAsAction="never"
+        android:textColor="@color/black"
+        android:background="@color/white"
+
+        />
+    <item
+        android:id="@+id/action_listado_contactos"
+        android:title="@string/menu_option_listado_contactos"
+        app:showAsAction="never"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        />
+</menu>
