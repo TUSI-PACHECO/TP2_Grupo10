@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -41,6 +43,13 @@ public class MainActivity extends AppCompatActivity {
         txtDireccion=findViewById(R.id.txt_direccion);
         txtEmail = findViewById(R.id.txt_email);
         txtDate = findViewById(R.id.txt_date);
+        Spinner phoneOptionsSpinner = findViewById(R.id.spinner_telefono);
+        Spinner mailOptionsSpinner = findViewById(R.id.spinner_email);
+
+        String [] spinnerOptions = {"Casa", "Trabajo", "Móvil"};
+        ArrayAdapter <String> adapterOptions = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerOptions);
+        phoneOptionsSpinner.setAdapter(adapterOptions);
+        mailOptionsSpinner.setAdapter(adapterOptions);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
