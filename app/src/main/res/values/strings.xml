@@ -3,6 +3,14 @@
     <string name="menu_option_agregar_contactos">Agregar contactos</string>
     <string name="menu_option_listado_contactos">Listado de contactos</string>
     <string name="receiveInformationSwitch">DESEA RECIBIR INFORMACIÓN?</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellido">Apellido</string>
+    <string name="telefono">Telefono</string>
+    <string name="formulario_descripcion">Este es un formulario destinado al registro de personas, sus datos personales e intereses.</string>
+    <string name="email">Email</string>
+    <string name="direccion">Direccion</string>
+    <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
+    <string name="continuar">CONTINUAR</string>
     <string name="TextView1">Listado de contactos</string>"
 
     <string-array name="tipo_contacto">
