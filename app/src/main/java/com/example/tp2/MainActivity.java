@@ -77,20 +77,53 @@ public class MainActivity extends AppCompatActivity {
     private boolean validateForm() {
         String email = txtEmail.getText().toString();
         String date = txtDate.getText().toString();
+        String name = txtNombre.getText().toString();
+        String surname = txtApellido.getText().toString();
+        String phone = txtTelefono.getText().toString();
 
         boolean isEmailValid = validateEmail(email);
         boolean isDateValid = validateDate(date);
+        boolean isNameValid = validateString(name);
+        boolean isSurnameValid = validateString(surname);
+        boolean isPhoneValid = validatePhone(phone);
+
         if (!isEmailValid) {
             txtEmail.setError("Correo electrónico no válido");
         }
         if (!isDateValid) {
             txtDate.setError("Fecha no válida o futura");
         }
-        if (!isEmailValid || !isDateValid) {
+        if (!isNameValid) {
+            txtNombre.setError("Nombre no válido");
+        }
+        if (!isSurnameValid) {
+            txtApellido.setError("Apellido no válido");
+        }
+        if (!isPhoneValid) {
+            txtTelefono.setError("Número de teléfono no válido");
+        }
+
+        if (!isEmailValid || !isDateValid || !isNameValid || !isSurnameValid || !isPhoneValid) {
             Toast.makeText(this, "Revise los campos ingresados", Toast.LENGTH_SHORT).show();
         }
 
         return isEmailValid && isDateValid;
+    }
+
+    private boolean validatePhone(String phone) {
+        if (phone.isEmpty()){
+            return false;
+        }
+        String phonePattern = "^\\d{8,10}(-\\d{1,3}){0,3}$";
+        return phone.matches(phonePattern);
+    }
+
+    private boolean validateString(String s) {
+        if (s.isEmpty()){
+            return false;
+        }
+        String stringValidPattern = "^[A-Za-zÀ-ÖØ-öø-ÿ']+(?: [A-Za-zÀ-ÖØ-öø-ÿ']+)*$";
+        return s.matches(stringValidPattern);
     }
 
     private boolean validateEmail(String email) {
