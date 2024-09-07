@@ -11,6 +11,7 @@
     <string name="direccion">Direccion</string>
     <string name="fecha_de_nacimiento">Fecha de Nacimiento</string>
     <string name="continuar">CONTINUAR</string>
+    <string name="TextView1">Listado de contactos</string>"
 
     <string-array name="tipo_contacto">
         <item>Casa</item>
