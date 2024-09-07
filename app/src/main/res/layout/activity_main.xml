@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="84dp"
         android:gravity="center"
-        android:text="FORMULARIO DE CONTACTO"
+        android:text="@string/formulario_de_contacto"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
