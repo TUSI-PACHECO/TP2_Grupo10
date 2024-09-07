@@ -109,8 +109,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-  /*  ///Metodo para boton Guardar
-    public void Guardar(View view)
+    public void siguiente (View view)
     {
         String nombre = txtNombre.getText().toString();
         String apellido = txtApellido.getText().toString();
@@ -119,16 +118,16 @@ public class MainActivity extends AppCompatActivity {
         String direccion = txtDireccion.getText().toString();
         String fechaNacimiento = txtDate.getText().toString();
 
-        SharedPreferences preferencias = getSharedPreferences("contactos", Context.MODE_PRIVATE);
-        SharedPreferences.Editor obj_editor = preferencias.edit();
-        obj_editor.putString((nombre, apellido, telefono, email, direccion, fechaNacimiento));
-        obj_editor.commit();
-
-        Toast.makeText(this, "El contacto ha sido guardado", Toast.LENGTH_SHORT).show();
-
-
-
-
+// Crear un intent para pasar los datos a la siguiente actividad
+        Intent intent = new Intent(this, formularioMasDatos.class);
+        intent.putExtra("nombre", nombre);
+        intent.putExtra("apellido", apellido);
+        intent.putExtra("telefono", telefono);
+        intent.putExtra("email", email);
+        intent.putExtra("direccion", direccion);
+        intent.putExtra("fechaNacimiento", fechaNacimiento);
+        startActivity(intent);
     }
-*/
+
+
 }

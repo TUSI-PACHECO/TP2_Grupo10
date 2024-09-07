@@ -53,7 +53,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="56dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/form_description"
         tools:layout_editor_absoluteX="16dp">
@@ -74,10 +74,10 @@
                 android:id="@+id/txt_nombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="textPersonName"
                 android:autofillHints="name"
                 android:ems="10"
                 android:hint="@string/nombre"
+                android:inputType="textPersonName"
                 tools:ignore="LabelFor" />
 
             <TextView
@@ -90,16 +90,17 @@
                 android:id="@+id/txt_apellido"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:autofillHints="familyName"
                 android:ems="10"
                 android:hint="@string/apellido"
-                android:inputType="textPersonName"
-                android:autofillHints="familyName"/>
+                android:inputType="textPersonName" />
 
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/telefono" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -107,15 +108,16 @@
 
                 <EditText
                     android:id="@+id/txt_telefono"
-                    android:layout_width="match_parent"
+                    android:layout_width="262dp"
                     android:layout_height="wrap_content"
+                    android:autofillHints="phone"
                     android:ems="10"
                     android:hint="@string/telefono"
-                    android:inputType="phone"
-                    android:autofillHints="phone" />
+                    android:inputType="phone" />
+
                 <Spinner
                     android:id="@+id/spinner_telefono"
-                    android:layout_width="wrap_content"
+                    android:layout_width="103dp"
                     android:layout_height="wrap_content"
                     android:entries="@array/tipo_contacto" />
             </LinearLayout>
@@ -133,12 +135,12 @@
 
                 <EditText
                     android:id="@+id/txt_email"
-                    android:layout_width="match_parent"
+                    android:layout_width="262dp"
                     android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:inputType="textEmailAddress"
                     android:autofillHints="emailAddress"
-                    android:hint="@string/email" />
+                    android:ems="10"
+                    android:hint="@string/email"
+                    android:inputType="textEmailAddress" />
 
                 <Spinner
                     android:id="@+id/spinner_email"
@@ -158,10 +160,10 @@
                 android:id="@+id/txt_direccion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPostalAddress"
                 android:autofillHints="postalAddress"
-                android:hint="@string/direccion" />
+                android:ems="10"
+                android:hint="@string/direccion"
+                android:inputType="textPostalAddress" />
 
             <TextView
                 android:id="@+id/textView2"
@@ -173,19 +175,20 @@
                 android:id="@+id/txt_date"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="date"
                 android:autofillHints="birthDate"
-                android:hint="@string/fecha_de_nacimiento" />
+                android:ems="10"
+                android:hint="@string/fecha_de_nacimiento"
+                android:inputType="date" />
 
             <Button
                 android:id="@+id/button_continue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/continuar"
+                android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:gravity="center"
-                android:layout_gravity="center" />
+                android:onClick="siguiente"
+                android:text="@string/continuar" />
 
         </LinearLayout>
     </ScrollView>
