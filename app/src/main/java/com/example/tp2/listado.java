@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
@@ -16,8 +17,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 public class listado extends AppCompatActivity {
@@ -38,7 +39,7 @@ public class listado extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        lv1 = (ListView) findViewById(R.id.lv1);
+        lv1 = findViewById(R.id.lv1);
 
         mostrarDatosEnListView();
     }
@@ -46,35 +47,58 @@ public class listado extends AppCompatActivity {
     private void mostrarDatosEnListView() {
         ArrayList<String> listaContactos = new ArrayList<>();
         try {
-            FileInputStream fis = openFileInput("contactos.txt");
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-            String linea;
-            StringBuilder contactoActual = new StringBuilder();
+            File directorio = new File(getFilesDir(), "contactos");
+            if (directorio.exists() && directorio.isDirectory()) {
+                File[] archivos = directorio.listFiles();
 
-            while ((linea = br.readLine()) != null) {
-                if (linea.trim().isEmpty()) {
-                    if (contactoActual.length() > 0) {
-                        listaContactos.add(contactoActual.toString());
-                        contactoActual = new StringBuilder();
+                if (archivos != null) {
+                    for (File archivo : archivos) {
+                        if (archivo.isFile()) {
+                            listaContactos.add(archivo.getName().replace("-", " ").replace(".txt", ""));
+                        }
                     }
-                } else {
-                    contactoActual.append(linea).append("\n");
                 }
+            } else {
+                Toast.makeText(this, "No se encontró la carpeta de contactos", Toast.LENGTH_SHORT).show();
             }
-
-            if (contactoActual.length() > 0) {
-                listaContactos.add(contactoActual.toString());
-            }
-
-            br.close();
         } catch (Exception e) {
             e.printStackTrace();
             Toast.makeText(this, "Error al leer los datos", Toast.LENGTH_SHORT).show();
         }
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaContactos);
         lv1.setAdapter(adapter);
+
+        lv1.setOnItemClickListener((parent, view, position, id) -> {
+            String nombreArchivo = listaContactos.get(position).replace(" ", "-") + ".txt";
+            mostrarModalConInfoArchivo(nombreArchivo);
+        });
+    }
+
+    private void mostrarModalConInfoArchivo(String nombreArchivo) {
+        try {
+            File archivo = new File(getFilesDir() + "/contactos", nombreArchivo);
+            StringBuilder contenidoArchivo = new StringBuilder();
+
+            BufferedReader br = new BufferedReader(new FileReader(archivo));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                contenidoArchivo.append(linea).append("\n");
+            }
+            br.close();
+
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Detalles de Contacto");
+            builder.setMessage(contenidoArchivo.toString());
+
+            builder.setPositiveButton("Cerrar", (dialog, which) -> dialog.dismiss());
+
+            AlertDialog dialog = builder.create();
+            dialog.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(this, "Error al leer el archivo", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override

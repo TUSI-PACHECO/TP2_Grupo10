@@ -18,6 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.switchmaterial.SwitchMaterial;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -127,12 +128,26 @@ public class formularioMasDatos extends AppCompatActivity {
                 "Intereses: " + intereses.toString() + "\n" +
                 "Recibe Información: " + deseaRecibirInfo + "\n\n";
 
+        String nombreArchivo = String.format("%s-%s-%s.txt", nombre.replace(" ", "-"), apellido.replace(" ", "-"), email);
+
+        File directorio = new File(getFilesDir(), "contactos");
+        if (!directorio.exists()) {
+            if (!directorio.mkdirs()) {
+                Toast.makeText(this, "Error al crear la carpeta", Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+
+        File archivo = new File(directorio, nombreArchivo);
+
         try {
-            FileOutputStream fos = openFileOutput("contactos.txt", MODE_APPEND);
+            FileOutputStream fos = new FileOutputStream(archivo, true);
             fos.write(datosContacto.getBytes());
             fos.close();
+            Toast.makeText(this, "Contacto guardado correctamente", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
             e.printStackTrace();
+            Toast.makeText(this, "Error al guardar el contacto", Toast.LENGTH_SHORT).show();
         }
 
         finish();
