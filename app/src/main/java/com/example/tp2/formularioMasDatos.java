@@ -141,7 +141,7 @@ public class formularioMasDatos extends AppCompatActivity {
         File archivo = new File(directorio, nombreArchivo);
 
         try {
-            FileOutputStream fos = new FileOutputStream(archivo, true);
+            FileOutputStream fos = new FileOutputStream(archivo, false);
             fos.write(datosContacto.getBytes());
             fos.close();
             Toast.makeText(this, "Contacto guardado correctamente", Toast.LENGTH_SHORT).show();
